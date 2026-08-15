@@ -7,6 +7,9 @@ on:
     - cron: '30 10 * * 1-5'
   workflow_dispatch: # Allows manual triggering from GitHub UI
 
+permissions:
+  contents: write
+
 jobs:
   run-paper-trading:
     runs-on: ubuntu-latest
