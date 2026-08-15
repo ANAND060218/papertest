@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Paper Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .hidden-tab { display: none; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen font-sans">
+    <div class="container mx-auto p-6 max-w-7xl">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Antigravity Paper Portfolio</h1>
+                <p class="text-gray-400 mt-2 font-medium tracking-wide">LIVE UNIFIED TRADING DASHBOARD</p>
+            </div>
+            <div class="flex space-x-2 bg-gray-800 p-1 rounded-xl border border-gray-700 shadow-sm">
+                <button onclick="switchTab('overview')" id="btn-overview" class="px-5 py-2.5 rounded-lg transition-all font-medium bg-gray-700 text-white shadow-md">Overview</button>
+                <button onclick="switchTab('positions')" id="btn-positions" class="px-5 py-2.5 rounded-lg transition-all font-medium text-gray-400 hover:text-white hover:bg-gray-750">Positions</button>
+                <button onclick="switchTab('v19')" id="btn-v19" class="px-5 py-2.5 rounded-lg transition-all font-medium text-gray-400 hover:text-white hover:bg-gray-750">V19 Pairs Monitor</button>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="p-8 text-xl text-gray-400">Loading portfolio data from /api/portfolio...</div>
+        <!-- Error State -->
+        <div id="error" class="p-8 text-xl text-red-500 hidden-tab"></div>
+
+        <!-- Overview Tab -->
+        <div id="tab-overview" class="hidden-tab space-y-6">
+            <div id="strategy-cards" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Cards injected here -->
+            </div>
+            
+            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg h-[500px]">
+                <h3 class="text-lg font-bold mb-4">Combined Portfolio Equity</h3>
+                <canvas id="equityChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Positions Tab -->
+        <div id="tab-positions" class="hidden-tab bg-gray-800 rounded-xl border border-gray-700 shadow-lg overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-gray-900 border-b border-gray-700">
+                    <tr>
+                        <th class="p-4 font-semibold text-gray-400">Strategy</th>
+                        <th class="p-4 font-semibold text-gray-400">Symbol</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Qty</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Avg Price</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Realized P&L</th>
+                    </tr>
+                </thead>
+                <tbody id="positions-body" class="divide-y divide-gray-700">
+                    <!-- Positions injected here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- V19 Monitor Tab -->
+        <div id="tab-v19" class="hidden-tab bg-gray-800 rounded-xl border border-gray-700 shadow-lg overflow-hidden">
+            <table class="w-full text-left">
+                <thead class="bg-gray-900 border-b border-gray-700">
+                    <tr>
+                        <th class="p-4 font-semibold text-gray-400">Pair</th>
+                        <th class="p-4 font-semibold text-gray-400">Status</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Hedge Ratio</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Half Life</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Z-Score</th>
+                        <th class="p-4 font-semibold text-gray-400 text-right">Updated At</th>
+                    </tr>
+                </thead>
+                <tbody id="v19-body" class="divide-y divide-gray-700">
+                    <!-- V19 pairs injected here -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        let chartInstance = null;
+
+        function switchTab(tabId) {
+            document.getElementById('tab-overview').style.display = 'none';
+            document.getElementById('tab-positions').style.display = 'none';
+            document.getElementById('tab-v19').style.display = 'none';
+            
+            document.getElementById('btn-overview').className = "px-5 py-2.5 rounded-lg transition-all font-medium text-gray-400 hover:text-white hover:bg-gray-750";
+            document.getElementById('btn-positions').className = "px-5 py-2.5 rounded-lg transition-all font-medium text-gray-400 hover:text-white hover:bg-gray-750";
+            document.getElementById('btn-v19').className = "px-5 py-2.5 rounded-lg transition-all font-medium text-gray-400 hover:text-white hover:bg-gray-750";
+
+            document.getElementById(`tab-${tabId}`).style.display = 'block';
+            document.getElementById(`btn-${tabId}`).className = "px-5 py-2.5 rounded-lg transition-all font-medium bg-gray-700 text-white shadow-md";
+        }
+
+        async function loadData() {
+            try {
+                const response = await fetch('/api/portfolio');
+                if (!response.ok) throw new Error('API returned ' + response.status);
+                const data = await response.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                renderData(data);
+                switchTab('overview'); // show overview by default
+            } catch (err) {
+                document.getElementById('loading').style.display = 'none';
+                const errDiv = document.getElementById('error');
+                errDiv.style.display = 'block';
+                errDiv.innerText = 'Error loading data: ' + err.message;
+            }
+        }
+
+        function renderData(data) {
+            // 1. Overview Cards
+            const cardsContainer = document.getElementById('strategy-cards');
+            let cardsHTML = '';
+            
+            data.strategies.forEach(s => {
+                const curve = data.strategy_curves[s.strategy_id] || [];
+                const latestEq = curve.length > 0 ? curve[curve.length-1].total_equity : s.initial_capital;
+                const pnl = latestEq - s.initial_capital;
+                const pnlClass = pnl >= 0 ? 'text-green-400' : 'text-red-400';
+                const pnlSign = pnl >= 0 ? '+' : '';
+                
+                cardsHTML += `
+                    <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg">
+                        <h3 class="text-xl font-bold text-gray-300">${s.strategy_id}</h3>
+                        <div class="mt-4 text-3xl font-bold">₹${latestEq.toLocaleString('en-IN', {maximumFractionDigits: 0})}</div>
+                        <div class="mt-2 font-medium ${pnlClass}">
+                            P&L: ${pnlSign}₹${pnl.toLocaleString('en-IN', {maximumFractionDigits: 0})}
+                        </div>
+                        <div class="mt-1 text-sm text-gray-400">Cash: ₹${s.current_cash.toLocaleString('en-IN', {maximumFractionDigits: 0})}</div>
+                    </div>
+                `;
+            });
+            cardsContainer.innerHTML = cardsHTML;
+
+            // 2. Chart
+            if (data.combined_equity && data.combined_equity.length > 0) {
+                const ctx = document.getElementById('equityChart').getContext('2d');
+                const labels = data.combined_equity.map(d => d.date);
+                const eqData = data.combined_equity.map(d => d.total_equity);
+                
+                if (chartInstance) chartInstance.destroy();
+                
+                chartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Total Equity (₹)',
+                            data: eqData,
+                            borderColor: '#3B82F6',
+                            borderWidth: 3,
+                            stepped: true, // Step-after style
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { labels: { color: '#9CA3AF' } } },
+                        scales: {
+                            x: { ticks: { color: '#9CA3AF' }, grid: { color: '#374151' } },
+                            y: { ticks: { color: '#9CA3AF' }, grid: { color: '#374151' } }
+                        }
+                    }
+                });
+            }
+
+            // 3. Positions
+            const posContainer = document.getElementById('positions-body');
+            let posHTML = '';
+            if (data.open_positions.length === 0) {
+                posHTML = `<tr><td colspan="5" class="p-8 text-center text-gray-500">No open positions.</td></tr>`;
+            } else {
+                data.open_positions.forEach(p => {
+                    const qtyClass = p.quantity > 0 ? 'text-green-400' : 'text-red-400';
+                    const pnlClass = p.realized_pnl >= 0 ? 'text-green-400' : 'text-red-400';
+                    posHTML += `
+                        <tr class="hover:bg-gray-750 transition-colors">
+                            <td class="p-4 text-gray-300">${p.strategy_id}</td>
+                            <td class="p-4 font-bold text-blue-400">${p.symbol}</td>
+                            <td class="p-4 text-right font-medium ${qtyClass}">${p.quantity}</td>
+                            <td class="p-4 text-right text-gray-300">₹${p.avg_entry_price.toFixed(2)}</td>
+                            <td class="p-4 text-right font-medium ${pnlClass}">₹${p.realized_pnl.toFixed(2)}</td>
+                        </tr>
+                    `;
+                });
+            }
+            posContainer.innerHTML = posHTML;
+
+            // 4. V19 Monitor
+            const v19Container = document.getElementById('v19-body');
+            let v19HTML = '';
+            data.v19_monitor.forEach(m => {
+                const statusClass = m.status === 'ACTIVE' 
+                    ? 'bg-green-900/50 text-green-400 border border-green-700' 
+                    : 'bg-red-900/50 text-red-400 border border-red-700';
+                
+                const zScoreHTML = m.last_z_score 
+                    ? `<span class="${Math.abs(m.last_z_score) > 2 ? 'text-yellow-400' : 'text-gray-300'}">${m.last_z_score.toFixed(2)}</span>`
+                    : '-';
+                
+                v19HTML += `
+                    <tr class="hover:bg-gray-750 transition-colors">
+                        <td class="p-4 font-bold text-purple-400">${m.pair_id}</td>
+                        <td class="p-4"><span class="px-2 py-1 rounded text-xs font-bold ${statusClass}">${m.status}</span></td>
+                        <td class="p-4 text-right text-gray-300">${m.hedge_ratio ? m.hedge_ratio.toFixed(4) : '-'}</td>
+                        <td class="p-4 text-right text-gray-300">${m.half_life ? m.half_life.toFixed(1) + 'd' : '-'}</td>
+                        <td class="p-4 text-right font-bold">${zScoreHTML}</td>
+                        <td class="p-4 text-right text-gray-500 text-sm">${m.updated_at}</td>
+                    </tr>
+                `;
+            });
+            v19Container.innerHTML = v19HTML;
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>

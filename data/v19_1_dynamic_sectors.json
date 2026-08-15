@@ -1,0 +1,462 @@
+{
+    "RELIANCE.NS": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "adv_cr": 1550.97
+    },
+    "TCS.NS": {
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "adv_cr": 996.18
+    },
+    "HDFCBANK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 2425.52
+    },
+    "ICICIBANK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 1718.59
+    },
+    "BHARTIARTL.NS": {
+        "sector": "Communication Services",
+        "industry": "Telecom Services",
+        "adv_cr": 1278.53
+    },
+    "INFY.NS": {
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "adv_cr": 1430.45
+    },
+    "ITC.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Tobacco",
+        "adv_cr": 437.38
+    },
+    "HINDUNILVR.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "adv_cr": 392.99
+    },
+    "LT.NS": {
+        "sector": "Industrials",
+        "industry": "Engineering & Construction",
+        "adv_cr": 761.18
+    },
+    "SBIN.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 1155.03
+    },
+    "BAJFINANCE.NS": {
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "adv_cr": 990.84
+    },
+    "KOTAKBANK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 557.94
+    },
+    "AXISBANK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 914.37
+    },
+    "M&M.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 803.98
+    },
+    "MARUTI.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 564.84
+    },
+    "HCLTECH.NS": {
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "adv_cr": 436.67
+    },
+    "ASIANPAINT.NS": {
+        "sector": "Basic Materials",
+        "industry": "Specialty Chemicals",
+        "adv_cr": 261.36
+    },
+    "SUNPHARMA.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 456.73
+    },
+    "TITAN.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Luxury Goods",
+        "adv_cr": 492.4
+    },
+    "ULTRACEMCO.NS": {
+        "sector": "Basic Materials",
+        "industry": "Building Materials",
+        "adv_cr": 316.33
+    },
+    "TATASTEEL.NS": {
+        "sector": "Basic Materials",
+        "industry": "Steel",
+        "adv_cr": 405.08
+    },
+    "NTPC.NS": {
+        "sector": "Utilities",
+        "industry": "Utilities - Regulated Electric",
+        "adv_cr": 334.75
+    },
+    "POWERGRID.NS": {
+        "sector": "Utilities",
+        "industry": "Utilities - Regulated Electric",
+        "adv_cr": 239.23
+    },
+    "BAJAJFINSV.NS": {
+        "sector": "Financial Services",
+        "industry": "Financial Conglomerates",
+        "adv_cr": 277.94
+    },
+    "WIPRO.NS": {
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "adv_cr": 254.6
+    },
+    "NESTLEIND.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "adv_cr": 335.57
+    },
+    "GRASIM.NS": {
+        "sector": "Basic Materials",
+        "industry": "Building Materials",
+        "adv_cr": 220.39
+    },
+    "TECHM.NS": {
+        "sector": "Technology",
+        "industry": "Information Technology Services",
+        "adv_cr": 469.37
+    },
+    "ONGC.NS": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Integrated",
+        "adv_cr": 302.4
+    },
+    "ADANIENT.NS": {
+        "sector": "Energy",
+        "industry": "Thermal Coal",
+        "adv_cr": 408.13
+    },
+    "ADANIPORTS.NS": {
+        "sector": "Industrials",
+        "industry": "Marine Shipping",
+        "adv_cr": 343.53
+    },
+    "HINDALCO.NS": {
+        "sector": "Basic Materials",
+        "industry": "Aluminum",
+        "adv_cr": 518.1
+    },
+    "JSWSTEEL.NS": {
+        "sector": "Basic Materials",
+        "industry": "Steel",
+        "adv_cr": 208.62
+    },
+    "DRREDDY.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 305.79
+    },
+    "CIPLA.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 173.41
+    },
+    "TATACONSUM.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "adv_cr": 155.78
+    },
+    "BRITANNIA.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Packaged Foods",
+        "adv_cr": 154.19
+    },
+    "APOLLOHOSP.NS": {
+        "sector": "Healthcare",
+        "industry": "Medical Care Facilities",
+        "adv_cr": 313.12
+    },
+    "DIVISLAB.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 414.25
+    },
+    "EICHERMOT.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 411.66
+    },
+    "HEROMOTOCO.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 402.03
+    },
+    "COALINDIA.NS": {
+        "sector": "Energy",
+        "industry": "Thermal Coal",
+        "adv_cr": 260.27
+    },
+    "BPCL.NS": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "adv_cr": 204.27
+    },
+    "BAJAJ-AUTO.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 455.46
+    },
+    "SBILIFE.NS": {
+        "sector": "Financial Services",
+        "industry": "Insurance - Life",
+        "adv_cr": 170.98
+    },
+    "HDFCLIFE.NS": {
+        "sector": "Financial Services",
+        "industry": "Insurance - Life",
+        "adv_cr": 212.09
+    },
+    "PIDILITIND.NS": {
+        "sector": "Basic Materials",
+        "industry": "Specialty Chemicals",
+        "adv_cr": 181.06
+    },
+    "AMBUJACEM.NS": {
+        "sector": "Basic Materials",
+        "industry": "Building Materials",
+        "adv_cr": 104.43
+    },
+    "SHREECEM.NS": {
+        "sector": "Basic Materials",
+        "industry": "Building Materials",
+        "adv_cr": 52.8
+    },
+    "SIEMENS.NS": {
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "adv_cr": 153.77
+    },
+    "TVSMOTOR.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Manufacturers",
+        "adv_cr": 498.58
+    },
+    "INDIGO.NS": {
+        "sector": "Industrials",
+        "industry": "Airlines",
+        "adv_cr": 447.58
+    },
+    "CHOLAFIN.NS": {
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "adv_cr": 283.21
+    },
+    "GAIL.NS": {
+        "sector": "Utilities",
+        "industry": "Utilities - Regulated Gas",
+        "adv_cr": 183.4
+    },
+    "HAVELLS.NS": {
+        "sector": "Industrials",
+        "industry": "Electrical Equipment & Parts",
+        "adv_cr": 159.08
+    },
+    "DABUR.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "adv_cr": 85.03
+    },
+    "GODREJCP.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "adv_cr": 168.64
+    },
+    "TORNTPHARM.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 379.36
+    },
+    "TATAPOWER.NS": {
+        "sector": "Utilities",
+        "industry": "Utilities - Independent Power Producers",
+        "adv_cr": 139.22
+    },
+    "ICICIPRULI.NS": {
+        "sector": "Financial Services",
+        "industry": "Insurance - Life",
+        "adv_cr": 97.52
+    },
+    "INDUSINDBK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 220.25
+    },
+    "PNB.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 206.41
+    },
+    "BANKBARODA.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 246.53
+    },
+    "CANBK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 285.23
+    },
+    "DLF.NS": {
+        "sector": "Real Estate",
+        "industry": "Real Estate - Development",
+        "adv_cr": 283.28
+    },
+    "LODHA.NS": {
+        "sector": "Real Estate",
+        "industry": "Real Estate - Development",
+        "adv_cr": 367.17
+    },
+    "TRENT.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Apparel Retail",
+        "adv_cr": 420.04
+    },
+    "BOSCHLTD.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Auto Parts",
+        "adv_cr": 156.1
+    },
+    "CUMMINSIND.NS": {
+        "sector": "Industrials",
+        "industry": "Specialty Industrial Machinery",
+        "adv_cr": 244.81
+    },
+    "AUBANK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 176.69
+    },
+    "FEDERALBNK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 212.59
+    },
+    "IDFCFIRSTB.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 174.63
+    },
+    "MUTHOOTFIN.NS": {
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "adv_cr": 338.08
+    },
+    "PIIND.NS": {
+        "sector": "Basic Materials",
+        "industry": "Agricultural Inputs",
+        "adv_cr": 68.06
+    },
+    "UPL.NS": {
+        "sector": "Basic Materials",
+        "industry": "Agricultural Inputs",
+        "adv_cr": 120.7
+    },
+    "SRF.NS": {
+        "sector": "Industrials",
+        "industry": "Conglomerates",
+        "adv_cr": 142.49
+    },
+    "VOLTAS.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Furnishings, Fixtures & Appliances",
+        "adv_cr": 96.98
+    },
+    "COLPAL.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "adv_cr": 71.12
+    },
+    "MARICO.NS": {
+        "sector": "Consumer Defensive",
+        "industry": "Household & Personal Products",
+        "adv_cr": 154.79
+    },
+    "PAGEIND.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Apparel Manufacturing",
+        "adv_cr": 131.96
+    },
+    "JUBLFOOD.NS": {
+        "sector": "Consumer Cyclical",
+        "industry": "Restaurants",
+        "adv_cr": 175.54
+    },
+    "HAL.NS": {
+        "sector": "Industrials",
+        "industry": "Aerospace & Defense",
+        "adv_cr": 435.05
+    },
+    "BEL.NS": {
+        "sector": "Industrials",
+        "industry": "Aerospace & Defense",
+        "adv_cr": 469.99
+    },
+    "PFC.NS": {
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "adv_cr": 280.21
+    },
+    "RECLTD.NS": {
+        "sector": "Financial Services",
+        "industry": "Credit Services",
+        "adv_cr": 190.7
+    },
+    "IOC.NS": {
+        "sector": "Energy",
+        "industry": "Oil & Gas Refining & Marketing",
+        "adv_cr": 162.1
+    },
+    "LICHSGFIN.NS": {
+        "sector": "Financial Services",
+        "industry": "Mortgage Finance",
+        "adv_cr": 70.85
+    },
+    "TATACOMM.NS": {
+        "sector": "Communication Services",
+        "industry": "Telecom Services",
+        "adv_cr": 53.86
+    },
+    "BIOCON.NS": {
+        "sector": "Healthcare",
+        "industry": "Biotechnology",
+        "adv_cr": 252.38
+    },
+    "AUROPHARMA.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 151.68
+    },
+    "LUPIN.NS": {
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - Specialty & Generic",
+        "adv_cr": 246.17
+    },
+    "BANDHANBNK.NS": {
+        "sector": "Financial Services",
+        "industry": "Banks - Regional",
+        "adv_cr": 308.13
+    }
+}

@@ -1,0 +1,18 @@
+# Data files
+data/*.csv
+data/*.parquet
+data/*.db
+!data/paper_trading.db
+data/v17_multi_year.db
+
+# Large research outputs
+results/
+samples/
+
+# Python caching
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Environment files
+.env

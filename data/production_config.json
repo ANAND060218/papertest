@@ -1,0 +1,39 @@
+{
+  "strategy_name": "V15_2_CANONICAL_DUAL_MOMENTUM",
+  "version": "15.2.1",
+  "status": "CANONICAL_FROZEN_SHADOW_PRODUCTION",
+  "frozen_date": "2026-08-15",
+  "universe": {
+    "type": "NIFTY_LARGE_CAP_LIQUID",
+    "min_liquidity_daily_turnover_cr": 50.0,
+    "max_constituents": 38
+  },
+  "signal_parameters": {
+    "momentum_lookback_1_months": 6,
+    "momentum_lookback_2_months": 12,
+    "weight_lookback_1": 0.5,
+    "weight_lookback_2": 0.5,
+    "absolute_trend_filter_months": 10,
+    "absolute_trend_condition": "Close > SMA_10"
+  },
+  "portfolio_construction": {
+    "canonical_architecture": "TOP_10_EQUAL_WEIGHT",
+    "holdings_count_top_n": 10,
+    "weighting_schema": "EQUAL_WEIGHT",
+    "target_weight_per_position_pct": 10.0,
+    "max_position_cap_pct": 15.0,
+    "cash_buffer_pct": 2.0
+  },
+  "rebalancing_protocol": {
+    "frequency": "MONTHLY",
+    "ranking_day": "MONTH_END_CLOSE",
+    "execution_day": "NEXT_TRADING_DAY_OPEN",
+    "rebalance_threshold_turnover_pct": 5.0
+  },
+  "risk_and_costs": {
+    "assumed_slippage_pct": 0.05,
+    "statutory_stt_delivery_pct": 0.10,
+    "brokerage_per_order_max_inr": 20.0,
+    "stamp_duty_buy_pct": 0.015
+  }
+}
